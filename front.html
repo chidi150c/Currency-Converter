@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<title>Converter Code</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <body>   
+        <div class="w3-container"> 
+                    <h2>Currency Converter</h2>
+                    <p>Currency converter converts one currency to another and able to do it while offline or online.</p>
+                  </div>
+        <div class="w3-container">
+            <form class="chat-form" >
+                    <textarea id="from" name="From" autofocus>USD</textarea>
+                    <a> to </a>
+                    <textarea id="to" name="To" autofocus>NGN</textarea>
+                    <button onclick="apiget()">Convert</button>
+                    <textarea name="To" autofocus></textarea>
+            </form>
+            <form action="/action_page.php">
+                <select name="cars">
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="fiat">Fiat</option>
+                  <option value="audi">Audi</option>
+                </select>
+                <br><br>
+                <input type="submit">
+              </form>
+            <script>
+                function apiget(){
+                    var from = document.getElementById('from').innerHTML.valueOf()
+                    var to = document.getElementById('to').innerHTML.valueOf()
+                    fetch('https://free.currencyconverterapi.com/api/v5/convert?q='+from+'_'+to+'&compact=y')
+                    .then(function(response) {
+                    return response.json();
+                    })
+                    .then(function(myJson) {
+                    console.log(myJson);
+                    });
+                }                
+            </script>
+        </div>
+    </body>
+</html>
+</body>
+</html>
